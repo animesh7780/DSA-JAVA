@@ -1,4 +1,3 @@
-# [Video Link](https://youtu.be/ldYLYRNaucM)
 ## Write Java programs for the following: 
 
 ### Basic Java Programs
