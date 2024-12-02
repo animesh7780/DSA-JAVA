@@ -5,7 +5,7 @@ public class Pangram {
 
     static boolean pangram(String str) {
         for (char c : str.toCharArray()) {
-            if (c >= 'a' && c <= 'z') {
+            if (c == "") {
                 return true;
             }
         }
