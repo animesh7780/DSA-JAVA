@@ -158,5 +158,6 @@ public class BST {
         BST bst2 = new BST();
         bst2.populateSorted(values);
         bst2.display();
+
     }
 }
