@@ -14,8 +14,6 @@ public class binarySearch {
         }
 
         while (start <= end) {
-            // int mid = (start+end)/2;
-            // better way
             int mid = start + (end - start) / 2;
 
             if (target < arr[mid]) {
@@ -26,9 +24,7 @@ public class binarySearch {
                 return mid;
             }
         }
-        // return -1; when element is not found
-        // return start; finiding the closest bigger element
-        return end; // finding the closest smaller element
+        return -1;
     }
 
 }
