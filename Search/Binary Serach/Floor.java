@@ -1,4 +1,4 @@
-public class binarySearch {
+public class Floor {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 24, 54, 543, 623, 2112 };
         int target = 544;
@@ -9,7 +9,7 @@ public class binarySearch {
         int start = 0;
         int end = arr.length - 1;
 
-        if (target > arr[end]) {
+        if (target < arr[start]) {
             return -1;
         }
 
@@ -26,9 +26,6 @@ public class binarySearch {
                 return mid;
             }
         }
-        // return -1; when element is not found
-        // return start; finiding the closest bigger element
-        return end; // finding the closest smaller element
+        return end;
     }
-
 }
