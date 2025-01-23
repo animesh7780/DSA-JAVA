@@ -10,6 +10,21 @@ public class LinkedList {
             this.size = 0;
         }
 
+        // insert using recursion
+        public void insertUsingRecursion(int value, int index) {
+            head = insertRec(value, index, head);
+        }
+
+        private Node insertRec(int val, int index, Node node) {
+            if (index == 0) {
+                Node temp = new Node(val, node);
+                size++;
+                return temp;
+            }
+            node.next = insertRec(val, index--, node.next);
+            return node;
+        }
+
         public void inserrtFirst(int value) {
             Node node = new Node(value);
             node.next = head;
@@ -124,20 +139,33 @@ public class LinkedList {
                 this.next = next;
             }
         }
+
+        // questions from leetcode
+        // Leet 83
+        public void deleteDuplicates() {
+            Node node = head;
+            while (node.next != null) {
+                if (node.value == node.next.value) {
+                    node.next = node.next.next;
+                    size--;
+                } else {
+                    node = node.next;
+                }
+            }
+            tail = node;
+            tail.next = null;
+        }
     }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         LinkedList.LL list = ll.new LL();
         list.inserrtFirst(10);
+        list.inserrtFirst(10);
         list.inserrtFirst(20);
         list.inserrtFirst(30);
-        list.insertLast(40);
-        list.insertAtIndex(50, 2);
-        list.deleteFirst();
-        list.deleteLast();
-        list.deleteAtIndex(1);
-        list.findValue(20);
+        list.inserrtFirst(30);
+        list.deleteDuplicates();
         list.Display();
     }
 }

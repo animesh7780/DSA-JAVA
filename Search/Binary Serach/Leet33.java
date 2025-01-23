@@ -11,10 +11,10 @@ public class Leet33 {
         while (start <= end) {
             // 4 cases
             int mid = start + (end - start) / 2;
-            if (arr[mid] > arr[mid + 1] && mid < end) { // mid<end is important
+            if (mid < end && arr[mid] > arr[mid + 1]) { // mid<end is important
                 return mid;
             }
-            if (arr[mid] < arr[mid - 1] && mid > start) { // mid>start is important
+            if (mid > start && arr[mid] < arr[mid - 1]) { // mid>start is important
                 return mid - 1;
             }
             if (arr[start] <= arr[mid]) {
@@ -41,10 +41,6 @@ public class Leet33 {
     }
 
     static int binary(int[] arr, int target, int start, int end) {
-
-        if (target > arr[end]) {
-            return -1;
-        }
 
         while (start <= end) {
             int mid = start + (end - start) / 2;
