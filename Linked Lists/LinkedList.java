@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 public class LinkedList {
 
     private class LL {
@@ -157,15 +159,164 @@ public class LinkedList {
         }
     }
 
+    // merge two lists
+    // 21 leetcode
+
+    public static LL merge(LL list1, LL list2) {
+        Node f = list1.head;
+        Node s = list2.head;
+        LL ans = new LL();
+
+        while (f != null && s != null) {
+            if (f.value < s.value) {
+                ans.insertLast(f.value);
+                f = f.next;
+            } else {
+                ans.insertLast(s.value);
+                s = s.next;
+            }
+        }
+        while (f != null) {
+            ans.insertLast(f.value);
+            f = f.next;
+        }
+        while (s != null) {
+            ans.insertLast(s.value);
+            s = s.next;
+        }
+        return ans;
+    }
+
+    // 141 leetcode
+    public boolean hasCycle(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // length of cycle
+    public int lengthCycle(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                Node temp = slow;
+                int count = 0;
+                do {
+                    temp = temp.next;
+                    count++;
+                } while (temp != slow);
+                return count;
+            }
+        }
+        return 0;
+    }
+
+    // leetcode 143 cycle II
+
+    public listNode detectCycle(listNode head) {
+        listNode slow = head;
+        listNode fast = head;
+
+        int lenght = 0;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                length = lengthCycle(slow);
+                break;
+            }
+        }
+
+        if (length == 0) {
+            return null;
+        }
+
+        // find the start of the cycle
+        listNode f = head;
+        listNode s = head;
+
+        while (length > 0) {
+            s = s.next;
+            length--;
+        }
+        while (f != s) {
+            f = f.next;
+            s = s.next;
+        }
+        return s;
+    }
+
+    // Happy number leetcode 202
+
+    public boolean isHappy(int n) {
+        int slow = n;
+        int fast = n;
+
+        do {
+            slow = findSquare(slow);
+            fast = findSquare(findSquare(fast));
+        } while (fast != slow);
+
+        if (slow == 1) {
+            return true;
+        }
+        return false;
+
+    }
+
+    // Leetcode 876
+    // Middle of linked list
+
+    public Node middleNode(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    private int findSquare(int n) {
+        int sum = 0;
+        while (n != 0) {
+            int rem = n % 10;
+            sum += rem * rem;
+            n /= 10;
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        LinkedList.LL list = ll.new LL();
-        list.inserrtFirst(10);
-        list.inserrtFirst(10);
-        list.inserrtFirst(20);
-        list.inserrtFirst(30);
-        list.inserrtFirst(30);
-        list.deleteDuplicates();
-        list.Display();
+
+        LL list1 = new LL();
+        LL list2 = new LL();
+
+        list1.insertLast(1);
+        list1.insertLast(2);
+        list1.insertLast(3);
+        list1.insertLast(4);
+        list1.insertLast(5);
+        list2.insertLast(1);
+        list2.insertLast(2);
+        list2.insertLast(3);
+        list2.insertLast(4);
+        list2.insertLast(5);
+        LL ans = merge(list1, list2);
+        ans.display();
     }
 }
