@@ -274,7 +274,6 @@ public class LinkedList {
             return true;
         }
         return false;
-
     }
 
     // Leetcode 876
