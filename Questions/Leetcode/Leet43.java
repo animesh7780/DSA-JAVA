@@ -1,3 +1,5 @@
+import java.math.BigInteger;
+
 public class Leet43 {
 
     public static void main(String[] args) {
@@ -8,8 +10,11 @@ public class Leet43 {
     }
 
     public String multiply(String num1, String num2) {
-        int num1i = Integer.parseInt(num1);
-        int num2i = Integer.parseInt(num2);
-        return String.valueOf(num1i * num2i);
+        BigInteger big1 = new BigInteger(num1);
+        BigInteger big2 = new BigInteger(num2);
+
+        BigInteger result = big1.multiply(big2);
+
+        return result.toString();
     }
 }
