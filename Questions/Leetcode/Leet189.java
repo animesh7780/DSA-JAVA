@@ -10,14 +10,6 @@ public class Leet189 {
     }
 
     public void rotate(int[] nums, int k) {
-        int n = nums.length;
-        while (k > 0) {
-            int temp = nums[n - 1];
-            for (int j = n - 1; j > 0; j--) {
-                nums[j] = nums[j - 1];
-            }
-            nums[0] = temp;
-            k--;
-        }
+
     }
 }

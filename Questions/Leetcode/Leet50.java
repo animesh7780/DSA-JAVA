@@ -12,10 +12,9 @@ public class Leet50 {
             return 1;
         }
         if (n < 0) {
-            x = 1 / x;
 
             for (int i = 0; i < -n; i++) {
-                ans *= x;
+                ans *= 1 / x;
             }
         }
         if (n > 0) {
