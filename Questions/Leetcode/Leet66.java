@@ -1,19 +1,27 @@
+import java.math.BigInteger;
+
 public class Leet66 {
     public static void main(String[] args) {
 
     }
 
     public int[] plusOne(int[] digits) {
-        String a = "";
-        for (int i = 0; i < digits.length; i++) {
-            a += digits[i];
+        StringBuilder a = new StringBuilder();
+
+        for (int digit : digits) {
+            a.append(digit);
         }
-        int b = Integer.parseInt(a) + 1;
-        String c = String.valueOf(b);
-        int[] d = new int[c.length()];
-        for (int i = 0; i < c.length(); i++) {
-            d[i] = Character.getNumericValue(c.charAt(i));
+
+        BigInteger number = new BigInteger(a.toString());
+        number = number.add(BigInteger.ONE);
+
+        String resultStr = number.toString();
+        int[] result = new int[resultStr.length()];
+
+        for (int i = 0; i < resultStr.length(); i++) {
+            result[i] = Character.getNumericValue(resultStr.charAt(i));
         }
-        return d;
+
+        return result;
     }
 }

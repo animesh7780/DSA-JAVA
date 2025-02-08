@@ -6,6 +6,7 @@ public class Leet8 {
     }
 
     public int myAtoi(String s) {
-        return Integer.parseInt(s);
+        String refS = s.trim();
+         if(s) 
     }
 }
