@@ -7,15 +7,13 @@ public class Leet20 {
 
     public boolean isValid(String s) {
         if (s == null || s.isEmpty()) {
-            return true; // Consider empty string as valid
+            return true;
         }
 
-        // Check if the first and last characters form a valid pair
         if (!isMatchingPair(s.charAt(0), s.charAt(s.length() - 1))) {
             return false;
         }
 
-        // Now, check if the brackets are balanced
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);

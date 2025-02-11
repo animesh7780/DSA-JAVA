@@ -5,9 +5,7 @@ public class Leet500 {
         String[] words = { "Hello", "Alaska", "Dad", "Peace" };
         Leet500 obj = new Leet500();
         String[] res = obj.findWords(words);
-        for (int i = 0; i < res.length; i++) {
-            System.out.print(res[i] + " ");
-        }
+
     }
 
     public String[] findWords(String[] words) {
