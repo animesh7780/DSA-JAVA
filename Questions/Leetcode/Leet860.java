@@ -16,6 +16,8 @@ public class Leet860 {
         for (int i = 0; i < bills.length; i++) {
             if (bills[i] == lemonadeCost) {
                 queue.add(bills[i] + balance);
+            } else if (bills[i] > lemonadeCost) {
+
             }
         }
         if (queue.isEmpty())
