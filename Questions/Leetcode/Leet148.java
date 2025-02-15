@@ -35,6 +35,6 @@ public class Leet148 {
             }
             head = head.next;
         }
-        return ListNode;
+        return head;
     }
 }

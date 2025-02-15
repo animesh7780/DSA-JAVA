@@ -1,39 +1,32 @@
+import java.util.Stack;
+
 public class Leet20 {
     public static void main(String[] args) {
-        String s = "([)]";
+        String s = "]";
         Leet20 obj = new Leet20();
         System.out.println(obj.isValid(s));
     }
 
     public boolean isValid(String s) {
-        if (s == null || s.isEmpty()) {
-            return true;
-        }
+        Stack<Character> stack = new Stack<>();
 
-        if (!isMatchingPair(s.charAt(0), s.charAt(s.length() - 1))) {
-            return false;
-        }
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty())
+                    return false; // Closing bracket without opening
 
-        int count = 0;
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            if (ch == '(' || ch == '{' || ch == '[') {
-                count++;
-            } else if (ch == ')' || ch == '}' || ch == ']') {
-                count--;
-            }
-
-            if (count < 0) {
-                return false; // More closing brackets than opening
+                char top = stack.peek();
+                if ((c == ')' && top == '(') ||
+                        (c == '}' && top == '{') ||
+                        (c == ']' && top == '[')) {
+                    stack.pop(); // Valid pair
+                } else {
+                    return false; // Mismatched pair
+                }
             }
         }
-        return count == 0;
-    }
-
-    // Helper function to check matching pairs
-    private boolean isMatchingPair(char open, char close) {
-        return (open == '(' && close == ')') ||
-                (open == '{' && close == '}') ||
-                (open == '[' && close == ']');
+        return stack.isEmpty(); // If stack is empty, all brackets were matched
     }
 }
