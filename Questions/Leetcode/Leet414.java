@@ -15,6 +15,9 @@ public class Leet414 {
                 }
             }
         }
+        if(nums.length < 3) {
+            return nums[nums.length - 1];
+        }
         return nums[nums.length - 3];
     }
 }

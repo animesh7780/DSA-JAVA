@@ -10,22 +10,6 @@ public class Leet18 {
 
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < nums.length - 3; i++) {
-            for (int j = i + 1; j < nums.length - 2; j++) {
-                for (int k = j + 1; k < nums.length - 1; k++) {
-                    for (int l = k + 1; l < nums.length; l++) {
-                        if (nums[i] + nums[j] + nums[k] + nums[l] == target && i != j && j != k && k != l) {
-                            List<Integer> list = new ArrayList<>();
-                            list.add(nums[i]);
-                            list.add(nums[j]);
-                            list.add(nums[k]);
-                            list.add(nums[l]);
-                            res.add(list);
-                        }
-                    }
-                }
-            }
-        }
-        return res;
+        if(nums == null || nums.length < 4) return res;
     }
 }
