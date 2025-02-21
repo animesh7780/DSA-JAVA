@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public class Leet217 {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3, 1 };
@@ -6,14 +8,12 @@ public class Leet217 {
     }
 
     public boolean containsDuplicate(int[] nums) {
-        int count = 0;
-        for (int i = 0; i < nums.length - 1; i++) {
-            if (nums[i] == nums[i + 1]) {
-                count++;
-                if (count > 1) {
-                    return true;
-                }
+        HashSet<Integer> seen = new HashSet<>();
+        for (int num : nums) {
+            if (seen.contains(num)) {
+                return true;
             }
+            seen.add(num);
         }
         return false;
     }
