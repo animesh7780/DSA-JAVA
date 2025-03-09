@@ -1,9 +1,11 @@
 public class Leet345 {
     public static void main(String[] args) {
-
+        String s = "IcecreAm";
+        reverseVowels(s);
+        System.out.println(s);
     }
 
-    public String reverseVowels(String s) {
+    public static String reverseVowels(String s) {
         char[] chars = s.toCharArray();
         int i = 0;
         int j = s.length() - 1;
