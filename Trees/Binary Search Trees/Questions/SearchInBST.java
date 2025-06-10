@@ -1,5 +1,3 @@
-import Binary_Search_Trees.TreeNode;
-
 public class SearchInBST{
     public TreeNode searchBST(TreeNode root, int val){
         while (root != null && root.val != val) {
