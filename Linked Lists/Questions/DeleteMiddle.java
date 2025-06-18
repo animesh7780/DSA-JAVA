@@ -1,21 +1,20 @@
-public class OddEven {
-    public ListNode oddEvenList(ListNode head) {
+public class DeleteMiddle {
+    ListNode deleteNodeInMiddle(ListNode head){
+        if(head == null) return null;
 
-        if(head == null && head.next == null) return null;
+        ListNode fast = head;
+        ListNode slow = head;
 
-        ListNode odd = head;           // Points to first odd node
-        ListNode even = head.next;     // Points to first even node
-        ListNode evenHead = even;      // Save the head of even list
-
-        while(even != null && even.next != null){
-            odd.next = odd.next.next;
-            even.next = even.next.next;
-
-            odd = odd.next;
-            even = even.next;
+        //moving fast pointer twice as much as slow
+        while(fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        odd.next = evenHead; // connecting oddList to even list
+        // Delete the middle node by skipping it
+        if (slow.next != null) {
+            slow.next = slow.next.next;
+        }
         return head;
     }
 }

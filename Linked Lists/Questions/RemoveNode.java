@@ -1,21 +1,23 @@
-public class OddEven {
-    public ListNode oddEvenList(ListNode head) {
+public class RemoveNode {
+    ListNode findandDelete(ListNode head, int N){
+        ListNode fast = head;
+        ListNode slow = head;
 
-        if(head == null && head.next == null) return null;
-
-        ListNode odd = head;           // Points to first odd node
-        ListNode even = head.next;     // Points to first even node
-        ListNode evenHead = even;      // Save the head of even list
-
-        while(even != null && even.next != null){
-            odd.next = odd.next.next;
-            even.next = even.next.next;
-
-            odd = odd.next;
-            even = even.next;
+        for(int i=0; i<N; i++){
+            fast = fast.next;
         }
 
-        odd.next = evenHead; // connecting oddList to even list
+        if(fast != null) return head.next;
+
+        while(fast.next != null){
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        ListNode deleNode = slow.next;
+        slow.next = slow.next.next;
+        deleNode = null;
+        
         return head;
     }
 }
