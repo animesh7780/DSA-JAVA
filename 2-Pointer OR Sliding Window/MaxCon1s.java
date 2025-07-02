@@ -27,7 +27,7 @@ public class MaxCon1s{
         return maxLen;
     }
 
-    //optimal
+    //optimal(using sliding window)
     public int longestOnes(int[] nums, int k){
         int left = 0, right = 0;
         int maxLen = 0;
