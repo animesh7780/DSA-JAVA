@@ -1,13 +1,13 @@
 public class MaxProductSub{
-    public int maxProduct(int[] nums) {
+    public int maxProductAlternative(int[] nums) {
         int n = nums.length;
-        int ans = 0;
-        
+        int ans = Integer.MIN_VALUE;  // Works for all negative arrays too
+       
         for(int i=0; i<n; i++){
             int pro = 1;
             for(int j=i; j<n; j++){
                 pro = pro * nums[j];
-                ans = Math.max(ans, pro); 
+                ans = Math.max(ans, pro);
             }
         }
         return ans;
