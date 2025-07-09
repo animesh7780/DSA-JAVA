@@ -8,7 +8,7 @@ public class Trie{
 
     void insert(String word){
         Node node = root;
-        for(int i=0; i<word.length(); i++){
+        for(int i=0; i<word.length(); i++){ 
             if(!node.containsKey(word.charAt(i))){
                 node.put(word.charAt(i), new Node());
             }
