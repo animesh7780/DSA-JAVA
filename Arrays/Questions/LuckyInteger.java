@@ -21,7 +21,6 @@ public class LuckyInteger {
                 maxLucky = Math.max(maxLucky, number);
             }
         }
-        
         return maxLucky;
     }
 }
