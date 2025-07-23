@@ -1,11 +1,23 @@
 public class SingleNumberIII {
     public int[] singleNumber(int[] arr){
-        int res[] = new int [2];
-        int ans = 0;
-        for(int i=0; i<arr.length; i++){
-            ans = ans ^ arr[i];
-            res[i] = ans;
+        int xor = 0;
+        //xor all numbers
+        for(int n : arr){
+            xor ^= n;
         }
-        return res;
+
+        //find the rightmost bit
+        int rightMostBit = xor & (-xor);
+
+        int[] result = new int[2];
+        //divide numbers into groups
+        for(int num : arr){
+            if((num & rightMostBit) == 0){
+                result[0] ^= num;
+            }else{
+                result[1] ^= num;
+            }
+        }
+        return result;
     }
 }
