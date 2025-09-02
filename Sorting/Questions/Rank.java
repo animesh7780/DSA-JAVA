@@ -33,4 +33,31 @@ public class Rank {
         }
         return assignRank;
     }
+
+    public String[] findRelativeRanks1(int[] score){
+        int n = score.length;
+        String[] giveRank = new String[n];
+        int[] arr = new int[n];
+
+        for(int i=0; i<n; i++){
+            arr[i] = score[i];
+        }
+
+        Arrays.sort(arr);
+        for(int i=n-1; i>=0; i--){
+            if(i == n-1){
+                giveRank[i] = "Gold";
+            }
+            else if(i == n-2){
+                giveRank[i] = "Silver";
+            }
+            else if(i == n-3){
+                giveRank[i] = "Bronze";
+            }
+            else{
+                giveRank[i] = "i+1";
+            }
+        }
+        return giveRank;
+    }
 }
