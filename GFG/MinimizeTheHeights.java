@@ -11,7 +11,7 @@ public class MinimizeTheHeights {
         int minH = arr[0] + k;
         int maxH = arr[n-1] - k; 
 
-        for(int i=0; i<n; i++){
+        for(int i=1; i<n; i++){
             int newMin = Math.min(minH, arr[i] - k);
             int newMax = Math.max(maxH, arr[i - 1] + k);
 
