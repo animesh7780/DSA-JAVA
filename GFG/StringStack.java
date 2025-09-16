@@ -5,7 +5,7 @@ public class StringStack {
         int j = tar.length() - 1;
 
         while(i >= 0 && j >= 0){
-            if (pat.charAt(i) != tar.charAt(i)) {
+            if (pat.charAt(i) != tar.charAt(j)) {
                 i -= 2;
             }
             else{
