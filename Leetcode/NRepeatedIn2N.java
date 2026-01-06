@@ -23,7 +23,7 @@ public class NRepeatedIn2N {
         int n = nums.length;
         int cnt = 0;
 
-        for(int i=1; i<=n; i++){
+        for(int i=1; i<n; i++){
             if(nums[i] == nums[i-1]){
                 cnt++;
             }
