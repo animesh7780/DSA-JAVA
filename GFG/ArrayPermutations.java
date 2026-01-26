@@ -28,4 +28,16 @@ public class ArrayPermutations {
             arr[i] = temp;
         }
     }
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+        ArrayList<ArrayList<Integer>> res = permuteDist(arr);
+
+        for (ArrayList<Integer> x : res) {
+            for (int y : x) {
+                System.out.print(y + " ");
+            }
+            System.out.println();
+        }
+    }
+
 }
